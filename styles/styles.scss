@@ -39,7 +39,7 @@
 
 body {
   background-color: var(--primary-color);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto Mono', monospace;
   font-size: 1.1rem;
   color: var(--color-white);
   transition: all .4s ease-in-out;
@@ -161,6 +161,7 @@ section {
   &:active {
     transform: translateY(-3px);
   }
+
   &:hover {
     transform: scale(1.05);
     background-color: var(--opposite-secondary-color);
@@ -551,7 +552,7 @@ section {
 //Blogs Section
 .blogs {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
   margin-top: 3rem;
 
@@ -609,14 +610,70 @@ section {
   }
 }
 
+.blog-nav-bar {
+  display: flex;
+  //Position should be on top of the blogs section
+  position: sticky;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-grey-5);
+
+  .active-nav-btn {
+    color: var(--secondary-color);
+  }
+
+  .nav-btn {
+    font-size: 1.2rem;
+    color: var(--color-grey-2);
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+
+    &:hover {
+      color: var(--secondary-color);
+    }
+  }
+
+  .active-nav-btn {
+    color: var(--secondary-color);
+  }
+}
+
+.sleep-nav-tab{
+    display: none;
+}
+
+.current-nav-tab {
+  display: block;
+  animation: appear 1s ease-in-out;
+  transform: translateY(0) scaleY(1);
+  @keyframes appear {
+    0% {
+      transform: translateY(-100%) scaleY(0);
+    }
+    100% {
+      transform: translateY(0) scaleY(1);
+    }
+  }
+
+  &:hover {
+    color: var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
+    border-top: 1px solid var(--secondary-color);
+  }
+}
+
+
 .cv {
   padding: 20px;
+
   &:hover {
     box-shadow: 1px 1px 20px rgba(0, 0, 0, .3);
     transform: translateY(-5px);
     transition: all .4s ease-in-out;
     cursor: pointer;
   }
+
   iframe {
     border-radius: 5px;
     border: 8px solid var(--secondary-color);
